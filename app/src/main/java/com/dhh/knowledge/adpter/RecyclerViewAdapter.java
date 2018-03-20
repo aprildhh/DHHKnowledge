@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dhh.knowledge.MainActivity;
 import com.dhh.knowledge.R;
@@ -22,10 +23,10 @@ import java.util.Map;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
     private Context context;
-    private ArrayList<Map<String,String >> datas;
+    private ArrayList<Map<String,Object >> datas;
     private LayoutInflater mInflater;
 
-    public RecyclerViewAdapter(Context context, ArrayList<Map<String,String >> datas) {
+    public RecyclerViewAdapter(Context context, ArrayList<Map<String,Object >> datas) {
         this.context = context;
         this.datas = datas;
     }
@@ -54,8 +55,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         //根据位置得到对应的数据
-        String title = datas.get ( position ).get ( "title" );
-        String content = datas.get ( position ).get ( "content" );
+        String leftTitle = (String) datas.get ( position ).get ( "leftTitle" );
+        String title = (String) datas.get ( position ).get ( "title" );
+        String content = (String) datas.get ( position ).get ( "content" );
+        int color = (int) datas.get ( position ).get ( "color" );
+        holder.itemLeftTitle.setBackground ( context.getResources ().getDrawable ( color ) );
+        holder.itemLeftTitle.setText ( leftTitle );
         holder.itemTvTitle.setText ( title );
         holder.itemTvContent.setText ( content );
     }
@@ -71,17 +76,23 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        private ImageView itemImage;
+        private TextView itemLeftTitle;
         private TextView itemTvTitle;
         private TextView itemTvContent;
 
         public ViewHolder(View convertView) {
             super ( convertView );
-
-            itemImage = (ImageView) convertView.findViewById(R.id.item_image);
+            itemLeftTitle = (TextView) convertView.findViewById(R.id.item_left_title);
             itemTvTitle = (TextView) convertView.findViewById(R.id.item_tv_title);
             itemTvContent = (TextView) convertView.findViewById(R.id.item_tv_content);
 
+            convertView.setOnClickListener ( new View.OnClickListener () {
+                @Override
+                public void onClick(View v) {
+                    Map<String, Object> position = datas.get ( getPosition () );
+                    Toast.makeText ( context,"aaaa",Toast.LENGTH_SHORT ).show ();
+                }
+            } );
         }
     }
 }
