@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DHHKnowledge.iml" filepath="$PROJECT_DIR$/DHHKnowledge.iml" />
+      <module fileurl="file://F:\demo\DHHKnowledge\DHHKnowledge\DHHKnowledge.iml" filepath="F:\demo\DHHKnowledge\DHHKnowledge\DHHKnowledge.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://F:\demo\DHHKnowledge\DHHKnowledge\app\app.iml" filepath="F:\demo\DHHKnowledge\DHHKnowledge\app\app.iml" />
     </modules>
   </component>
 </project>
