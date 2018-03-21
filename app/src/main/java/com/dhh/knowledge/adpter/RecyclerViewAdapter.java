@@ -1,98 +1,88 @@
 package com.dhh.knowledge.adpter;
 
+import android.app.Activity;
 import android.content.Context;
-import android.support.v7.view.menu.MenuView;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.dhh.knowledge.MainActivity;
 import com.dhh.knowledge.R;
 
-import java.util.ArrayList;
-import java.util.Map;
+import java.util.List;
 
 /**
- * Created by DHH on 2018/3/19.
- * 页面：RecyclerView的适配器
+ * Created by DHH on 2018/3/21.
+ * 页面：
  */
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
-    private Context context;
-    private ArrayList<Map<String,Object >> datas;
-    private LayoutInflater mInflater;
 
-    public RecyclerViewAdapter(Context context, ArrayList<Map<String,Object >> datas) {
+    private Context context;
+    private List<String> datas;
+
+    public RecyclerViewAdapter(Context context, List<String> datas) {
         this.context = context;
         this.datas = datas;
     }
 
-    /**
-     * 相当于ListView中的getView（）方法中创建View和ViewHolder
-     *
-     * @param parent
-     * @param viewType
-     * @return
-     */
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
-        View itemView = View.inflate (context, R.layout.item_main_recyclerview,null );
+        View itemView = View.inflate ( context, R.layout.item_recyclerview,null );
         return new ViewHolder ( itemView );
     }
 
-    /**
-     * 相当于ListView中的getView（）方法中绑定数据部门的代码
-     * 数据和View绑定
-     *
-     * @param holder
-     * @param position
-     */
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        //根据位置得到对应的数据
-        String leftTitle = (String) datas.get ( position ).get ( "leftTitle" );
-        String title = (String) datas.get ( position ).get ( "title" );
-        String content = (String) datas.get ( position ).get ( "content" );
-        int color = (int) datas.get ( position ).get ( "color" );
-        holder.itemLeftTitle.setBackground ( context.getResources ().getDrawable ( color ) );
-        holder.itemLeftTitle.setText ( leftTitle );
-        holder.itemTvTitle.setText ( title );
-        holder.itemTvContent.setText ( content );
+        holder.tv_item_recyler_view.setText ( datas.get ( position ) );
     }
 
-    /**
-     * 得到总条数
-     *
-     * @return
-     */
     @Override
     public int getItemCount() {
         return datas.size ();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView itemLeftTitle;
-        private TextView itemTvTitle;
-        private TextView itemTvContent;
+    /**
+     * 在指定位置插入一条新数据
+     * @param position
+     * @param data
+     */
+    public void addData(int position, String data) {
+        datas.add ( position,data );
+        notifyItemInserted ( position );
+    }
 
-        public ViewHolder(View convertView) {
-            super ( convertView );
-            itemLeftTitle = (TextView) convertView.findViewById(R.id.item_left_title);
-            itemTvTitle = (TextView) convertView.findViewById(R.id.item_tv_title);
-            itemTvContent = (TextView) convertView.findViewById(R.id.item_tv_content);
+    public void removed(int position) {
+        datas.remove (position  );
+        notifyItemRemoved ( position );
+    }
 
-            convertView.setOnClickListener ( new View.OnClickListener () {
+    class ViewHolder extends RecyclerView.ViewHolder{
+
+        private TextView tv_item_recyler_view;
+
+        public ViewHolder(View itemView) {
+            super ( itemView );
+            tv_item_recyler_view = itemView.findViewById ( R.id.tv_item_recyler_view );
+
+            itemView.setOnClickListener ( new View.OnClickListener () {
                 @Override
                 public void onClick(View v) {
-                    Map<String, Object> position = datas.get ( getPosition () );
-                    Toast.makeText ( context,"aaaa",Toast.LENGTH_SHORT ).show ();
+                    if (onItemClickListener != null){
+                        onItemClickListener.onItemClick ( v,getLayoutPosition (),datas.get ( getLayoutPosition () ) );
+                    }
                 }
             } );
         }
+    }
+
+    public interface OnItemClickListener{
+        public void onItemClick(View view,int position,String data);
+    }
+
+    private OnItemClickListener onItemClickListener;
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
     }
 }
