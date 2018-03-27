@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:orientation="horizontal"
     android:gravity="center_vertical"
-    android:padding="20dp"
+    android:padding="15dp"
     android:layout_height="76dp">
 
 
@@ -14,7 +14,7 @@
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:background="@null"
-        android:src="@mipmap/icon_back"
+        android:src="@drawable/btn_back"
         android:onClick="back"/>
 
     <TextView
@@ -32,7 +32,7 @@
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:background="@null"
-        android:src="@mipmap/icon_more"
+        android:src="@drawable/btn_more"
         android:visibility="invisible"
         android:onClick="conform"
         />

@@ -1,4 +1,4 @@
-package com.dhh.knowledge;
+package com.dhh.knowledge.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.dhh.knowledge.R;
 import com.dhh.knowledge.adpter.RecyclerViewAdapter;
 import com.dhh.knowledge.base.BaseActivity;
 

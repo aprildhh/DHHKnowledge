@@ -1,6 +1,5 @@
-package com.dhh.knowledge;
+package com.dhh.knowledge.activity;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,8 +7,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import com.dhh.knowledge.R;
 import com.dhh.knowledge.adpter.MainRecyclerViewAdapter;
 import com.dhh.knowledge.common.Constants;
+import com.dhh.knowledge.common.Util;
 import com.dhh.knowledge.jni.JNI;
 
 import java.util.ArrayList;
@@ -48,10 +49,13 @@ public class MainActivity extends AppCompatActivity {
         adapter.setOnItemClickListener ( new MainRecyclerViewAdapter.OnItemClickListener () {
             @Override
             public void onItemClick(View view, int position, Map<String, Object> data) {
-                if (position == 0){
-                    Intent intent= new Intent (  );
-                    intent.setClass ( MainActivity.this,RecyclerViewActivity.class );
-                    startActivity ( intent );
+                String type = (String) data.get ( "type" );
+                if ("RecyclerView".equals ( type )){
+                    Util.showActivity(MainActivity.this,RecyclerViewActivity.class);
+                }else if ("RecyclerView".equals ( type )){
+                    Util.showActivity(MainActivity.this,CustomControlActivity.class);
+                }else if ("FAB".equals ( type )){
+                    Util.showActivity(MainActivity.this,FloatingActionButtonActivity.class);
                 }
             }
         } );
@@ -65,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
             map.put ( "title", Constants.titles[i] );
             map.put ( "content", Constants.contents[i] );
             map.put ( "color", Constants.colors[i] );
+            map.put ( "type", Constants.types[i] );
             datas.add ( map );
         }
     }

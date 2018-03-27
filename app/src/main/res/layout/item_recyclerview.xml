@@ -23,8 +23,8 @@
             android:orientation="horizontal">
 
             <com.makeramen.roundedimageview.RoundedImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:src="@mipmap/icon_item_recyler_view"
                 app:riv_border_color="#333333"
                 app:riv_border_width="2dp"
