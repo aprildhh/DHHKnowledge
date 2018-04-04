@@ -56,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
                     Util.showActivity(MainActivity.this,CustomControlActivity.class);
                 }else if ("FAB".equals ( type )){
                     Util.showActivity(MainActivity.this,FloatingActionButtonActivity.class);
+                }else if("MySQL".equals ( type )){
+                    Util.showActivity(MainActivity.this,MySQLActivity.class);
                 }
             }
         } );

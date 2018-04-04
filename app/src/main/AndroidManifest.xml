@@ -19,6 +19,7 @@
         <activity android:name=".activity.RecyclerViewActivity" />
         <activity android:name=".activity.CustomControlActivity" />
         <activity android:name=".activity.FloatingActionButtonActivity" />
+        <activity android:name=".activity.MySQLActivity" />
     </application>
 
 </manifest>
