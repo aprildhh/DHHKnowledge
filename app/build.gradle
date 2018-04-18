@@ -10,9 +10,9 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-        ndk{
+        ndk {
             moduleName "native-lib"  //so文件：lib+moduleName+.so
-            abiFilters "armeabi","armeabi-v7a","x86"//cpu的类型
+            abiFilters "armeabi", "armeabi-v7a", "x86"//cpu的类型
         }
 
         externalNativeBuild {

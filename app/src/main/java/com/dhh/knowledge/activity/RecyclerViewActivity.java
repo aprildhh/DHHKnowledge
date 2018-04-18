@@ -1,6 +1,5 @@
 package com.dhh.knowledge.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -15,7 +14,7 @@ import android.widget.Toast;
 
 import com.dhh.knowledge.R;
 import com.dhh.knowledge.adpter.RecyclerViewAdapter;
-import com.dhh.knowledge.base.BaseActivity;
+import com.dhh.knowledge.base.MBaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +24,7 @@ import java.util.List;
  * 页面：RecyclerView
  */
 
-public class RecyclerViewActivity extends BaseActivity{
+public class RecyclerViewActivity extends MBaseActivity {
 
     private TextView tvTitle;
     private RecyclerView rvRecyclerView;

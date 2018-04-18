@@ -20,6 +20,7 @@
         <activity android:name=".activity.CustomControlActivity" />
         <activity android:name=".activity.FloatingActionButtonActivity" />
         <activity android:name=".activity.MySQLActivity" />
+        <activity android:name=".activity.CVViewPagerActivity"></activity>
     </application>
 
 </manifest>

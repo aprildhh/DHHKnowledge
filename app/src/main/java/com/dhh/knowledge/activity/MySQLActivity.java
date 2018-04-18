@@ -1,13 +1,12 @@
 package com.dhh.knowledge.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.TextView;
 
 import com.dhh.knowledge.R;
-import com.dhh.knowledge.base.BaseActivity;
+import com.dhh.knowledge.base.MBaseActivity;
 import com.dhh.knowledge.common.Util;
 import com.dhh.knowledge.util.DBUtil;
 
@@ -19,7 +18,7 @@ import java.sql.SQLException;
  * 页面：android链接MySQL数据库
  */
 
-public class MySQLActivity extends BaseActivity {
+public class MySQLActivity extends MBaseActivity {
 
     private TextView tvTitle;
 //    private static final String REMOTE_IP = "192.168.1.102";

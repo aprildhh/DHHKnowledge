@@ -9,7 +9,7 @@ import android.support.annotation.Nullable;
  * 页面：
  */
 
-public abstract class BaseActivity extends Activity{
+public abstract class MBaseActivity extends Activity{
 
     protected Activity activity;
 
@@ -46,5 +46,11 @@ public abstract class BaseActivity extends Activity{
      * 给控件赋值
      */
     protected void initData() {
+    }
+
+    /**
+     * 给控件监听事件
+     */
+    protected void setListeners() {
     }
 }

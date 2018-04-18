@@ -1,21 +1,17 @@
 package com.dhh.knowledge.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.widget.TextView;
 
 import com.dhh.knowledge.R;
+import com.dhh.knowledge.adpter.MainRecyclerViewAdapter;
 import com.dhh.knowledge.adpter.MyRecyclerViewAdapter;
 import com.dhh.knowledge.base.MBaseActivity;
-import com.dhh.knowledge.common.Util;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,7 +21,7 @@ import java.util.Map;
  * 页面：自定义控件页面
  */
 
-public class CustomControlActivity extends MBaseActivity{
+public class ACopyActivity extends MBaseActivity{
 
     private TextView tv;
     private RecyclerView recyclerView;
@@ -36,7 +32,6 @@ public class CustomControlActivity extends MBaseActivity{
     private List<Map<String,Object>> dataList;
 
     private String[] titles = {"01优酷菜单","02广告效果-ViewPager"};
-    private String[] types = {"YK","GGVP"};
     private int[] imgs = {R.mipmap.bg_list_1,R.mipmap.bg_list_2};
 
     @Override
@@ -80,41 +75,26 @@ public class CustomControlActivity extends MBaseActivity{
 
     @Override
     protected void init() {
-
-        dataList = new ArrayList<> (  );
-
         for (int i =0; i< titles.length;i++){
             Map<String,Object> map = new HashMap<> (  );
             map.put ( "title",titles[i] );
             map.put ( "imgId",imgs[i] );
-            map.put ( "type",types[i] );
             dataList.add ( map );
         }
     }
 
     @Override
     protected void initData() {
-        tv.setText ( "自定义控件" );
+        tv.setText ( "" );
 
         recyclerView.setHasFixedSize ( true );
         mAdapter = new MyRecyclerViewAdapter (activity,dataList,mHandler);
         recyclerView.setAdapter ( mAdapter );
-        recyclerView.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.VERTICAL, false ) );
-//        recyclerView.addItemDecoration(new RecycleViewDivider(activity, LinearLayoutManager.VERTICAL, 10, getResources().getColor(R.color.black)));
+
     }
 
     @Override
     protected void setListeners() {
-        mAdapter.setOnItemClickListener ( new MyRecyclerViewAdapter.OnItemClickListener () {
-            @Override
-            public void onItemClick(View view, int position, Map<String, Object> data) {
-                String type = data.get ( "type" ) + "";
-                if ("YK".equals ( type )){
-                    Util.showShortToast ( activity,"暂未开发" );
-                }else if ("GGVP".equals ( type )){
-                    Util.showActivity ( activity,CVViewPagerActivity.class );
-                }
-            }
-        } );
+
     }
 }

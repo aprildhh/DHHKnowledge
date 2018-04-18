@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 String type = (String) data.get ( "type" );
                 if ("RecyclerView".equals ( type )){
                     Util.showActivity(MainActivity.this,RecyclerViewActivity.class);
-                }else if ("RecyclerView".equals ( type )){
+                }else if ("CustomControl".equals ( type )){
                     Util.showActivity(MainActivity.this,CustomControlActivity.class);
                 }else if ("FAB".equals ( type )){
                     Util.showActivity(MainActivity.this,FloatingActionButtonActivity.class);
