@@ -5,14 +5,49 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/body"
+    android:orientation="vertical"
     tools:context="com.dhh.knowledge.activity.CVViewPagerActivity">
 
-    <include layout="@layout/head_main"/>
+    <include layout="@layout/head_main" />
 
-    <android.support.v4.view.ViewPager
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    </android.support.v4.view.ViewPager>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_cv_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+
+        </android.support.v4.view.ViewPager>
+
+        <LinearLayout
+            android:id="@+id/ll_cv_linea_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#55000000"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/vp_cv_view_pager">
+
+            <TextView
+                android:id="@+id/tv_cv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="aaa"
+                android:textColor="@color/white" />
+
+            <LinearLayout
+                android:id="@+id/ll_point_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:orientation="horizontal" />
+
+
+        </LinearLayout>
+
+    </android.support.constraint.ConstraintLayout>
 
 </LinearLayout>
