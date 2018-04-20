@@ -18,6 +18,7 @@ import com.dhh.knowledge.R;
 import com.dhh.knowledge.adpter.MyRecyclerViewAdapter;
 import com.dhh.knowledge.adpter.MyViewPagerAdapter;
 import com.dhh.knowledge.base.MBaseActivity;
+import com.dhh.knowledge.util.DensityUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -100,7 +101,8 @@ public class CVViewPagerActivity extends MBaseActivity {
             //添加点
             ImageView point = new ImageView ( activity );
             point.setBackgroundResource ( R.drawable.point_select );
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams ( 10,10);
+            int wh = DensityUtil.dip2px ( activity,8 );
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams ( wh,wh);
 
             if (i==0){
                 point.setEnabled ( true );

@@ -35,9 +35,9 @@ public class CustomControlActivity extends MBaseActivity{
     private MyRecyclerViewAdapter mAdapter;
     private List<Map<String,Object>> dataList;
 
-    private String[] titles = {"01优酷菜单","02广告效果-ViewPager"};
-    private String[] types = {"YK","GGVP"};
-    private int[] imgs = {R.mipmap.bg_list_1,R.mipmap.bg_list_2};
+    private String[] titles = {"01优酷菜单","02广告效果-ViewPager","03下拉框"};
+    private String[] types = {"YK","GGVP","XLK"};
+    private int[] imgs = {R.mipmap.bg_list_1,R.mipmap.bg_list_2,R.mipmap.bg_list_3};
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -113,6 +113,8 @@ public class CustomControlActivity extends MBaseActivity{
                     Util.showShortToast ( activity,"暂未开发" );
                 }else if ("GGVP".equals ( type )){
                     Util.showActivity ( activity,CVViewPagerActivity.class );
+                }else if ("XLK".equals ( type )){
+                    Util.showActivity ( activity,XLKActivity.class );
                 }
             }
         } );
