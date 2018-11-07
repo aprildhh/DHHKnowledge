@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.dhh.knowledge.R;
+import com.dhh.knowledge.activity.custom_control.CustomControlActivity;
+import com.dhh.knowledge.activity.gson.GsonActivity;
 import com.dhh.knowledge.adpter.MainRecyclerViewAdapter;
 import com.dhh.knowledge.common.Constants;
 import com.dhh.knowledge.common.Util;
@@ -58,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
                     Util.showActivity(MainActivity.this,FloatingActionButtonActivity.class);
                 }else if("MySQL".equals ( type )){
                     Util.showActivity(MainActivity.this,MySQLActivity.class);
+                }else if("Gson".equals ( type )){
+                    Util.showActivity(MainActivity.this,GsonActivity.class);
                 }
             }
         } );

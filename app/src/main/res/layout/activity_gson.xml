@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/body"
+    android:orientation="vertical"
+    tools:context="com.dhh.knowledge.activity.custom_control.CVViewPagerActivity">
+
+    <include layout="@layout/head_main" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="共2项" />
+
+    <LinearLayout
+        style="@style/ll_horizontal_item_box"
+        android:onClick="gsonToJson"
+        tools:ignore="OnClick">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:src="@mipmap/ic_launcher_round"/>
+
+        <TextView style="@style/tv_single_line"
+            android:text="使用Gson生成Json串"/>
+    </LinearLayout>
+    
+    <View style="@style/v_split_line"/>
+
+    <LinearLayout
+        style="@style/ll_horizontal_item_box"
+        android:onClick="jsonToGson"
+        tools:ignore="OnClick">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:src="@mipmap/ic_launcher_round"/>
+
+        <TextView style="@style/tv_single_line"
+            android:text="使用Gson解析Json串"/>
+    </LinearLayout>
+
+    <View style="@style/v_split_line"/>
+
+</LinearLayout>

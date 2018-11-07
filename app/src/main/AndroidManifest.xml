@@ -17,11 +17,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.RecyclerViewActivity" />
-        <activity android:name=".activity.CustomControlActivity" />
+        <activity android:name=".activity.custom_control.CustomControlActivity" />
         <activity android:name=".activity.FloatingActionButtonActivity" />
         <activity android:name=".activity.MySQLActivity" />
-        <activity android:name=".activity.CVViewPagerActivity" />
-        <activity android:name=".activity.XLKActivity"></activity>
+        <activity android:name=".activity.custom_control.CVViewPagerActivity" />
+        <activity android:name=".activity.custom_control.XLKActivity" />
+        <activity android:name=".activity.custom_control.KGActivity"></activity>
+        <activity android:name=".activity.custom_control.TKActivity" />
+        <activity android:name=".activity.gson.GsonActivity" />
     </application>
 
 </manifest>

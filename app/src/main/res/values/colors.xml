@@ -21,5 +21,7 @@
     <color name="c_99bce2">#99bce2</color>
     <color name="c_bbb3d8">#bbb3d8</color>
 
+    <color name="transparent">#00ffffff</color>
+
 
 </resources>

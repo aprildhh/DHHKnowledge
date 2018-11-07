@@ -1,0 +1,28 @@
+<resources>
+
+    <!-- 横向LinearLayout -->
+    <style name="ll_horizontal_item_box">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_marginTop">40dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+    </style>
+
+    <!--  -->
+    <style name="tv_single_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
+    <!-- 分割线 -->
+    <style name="v_split_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.1dp</item>
+        <item name="android:background">@color/c_bbb3d8</item>
+    </style>
+
+</resources>

@@ -1,4 +1,4 @@
-package com.dhh.knowledge.activity;
+package com.dhh.knowledge.activity.custom_control;
 
 import android.os.Handler;
 import android.os.Message;
@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -111,7 +112,18 @@ public class XLKActivity extends MBaseActivity {
 
         mAdapter = new MyListAdapter ( activity, dataList, mHandler );
         mListView.setAdapter ( mAdapter );
+        mListView.setOnItemClickListener ( new AdapterView.OnItemClickListener () {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String msg = dataList.get ( position ) + "";
+                etXlk.setText ( msg );
 
+                if (mpopupWindow != null && mpopupWindow.isShowing ()){
+                    mpopupWindow.dismiss ();
+                    mpopupWindow = null;
+                }
+            }
+        } );
     }
 
     @Override

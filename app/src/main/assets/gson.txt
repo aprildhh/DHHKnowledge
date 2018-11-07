@@ -1,0 +1,7 @@
+{
+  "rst": 0,
+  "msg": "ok",
+  "data": {
+    "cookie": "JSESSIONID=abcntKeuJhop56LGykfdw"
+  }
+}
