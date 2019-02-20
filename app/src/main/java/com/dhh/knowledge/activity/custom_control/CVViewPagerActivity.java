@@ -132,6 +132,10 @@ public class CVViewPagerActivity extends MBaseActivity {
         vpCvViewPager.addOnPageChangeListener ( new MyOnPageChangeListener () );
     }
 
+    public void getAndroidBasicNotes(View view) {
+    }
+
+
     class MyOnPageChangeListener implements ViewPager.OnPageChangeListener {
 
         /**

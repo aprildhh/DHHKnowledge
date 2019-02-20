@@ -2,7 +2,7 @@ package com.dhh.knowledge.activity.gson.entity;
 
 /**
  * Created by DHH on 2018/11/7.
- * 页面：
+ * 页面：Data
  */
 public class Data {
     private String cookie;

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/body"
+    android:orientation="vertical"
+    tools:context="com.dhh.knowledge.activity.custom_control.CVViewPagerActivity">
+
+    <include layout="@layout/head_main" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="共2项" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="get"
+        android:onClick="httpGET"
+        tools:ignore="OnClick" />
+    
+    <View style="@style/v_split_line"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="httpPOST"
+        android:text="post"
+        tools:ignore="OnClick" />
+
+    <View style="@style/v_split_line"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="httpGETImage"
+        android:text="请求图片"
+        tools:ignore="OnClick" />
+
+    <TextView
+        android:id="@+id/tv_http_request_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="5dp"
+        android:textColor="@color/text_color"/>
+
+    <ImageView
+        android:id="@+id/img_http_request_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="5dp"/>
+
+</LinearLayout>

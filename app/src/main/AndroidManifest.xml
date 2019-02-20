@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dhh.knowledge">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,9 +24,10 @@
         <activity android:name=".activity.MySQLActivity" />
         <activity android:name=".activity.custom_control.CVViewPagerActivity" />
         <activity android:name=".activity.custom_control.XLKActivity" />
-        <activity android:name=".activity.custom_control.KGActivity"></activity>
+        <activity android:name=".activity.custom_control.KGActivity" />
         <activity android:name=".activity.custom_control.TKActivity" />
         <activity android:name=".activity.gson.GsonActivity" />
+        <activity android:name=".activity.http_url_connection.HttpURLConnectionActivity" />
     </application>
 
 </manifest>

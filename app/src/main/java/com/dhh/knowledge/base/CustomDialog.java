@@ -1,5 +1,6 @@
 package com.dhh.knowledge.base;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -16,7 +17,7 @@ import com.dhh.knowledge.R;
  * 页面：自定义弹框
  */
 
-public class CustomDialog extends Dialog {
+public class CustomDialog extends AlertDialog {
     private Listener mListener;
 
     public CustomDialog(Context context) {
@@ -48,6 +49,11 @@ public class CustomDialog extends Dialog {
             }
         });
         setContentView(contentView);
+    }
+
+    @Override
+    public void setMessage(CharSequence message) {
+        super.setMessage ( message );
     }
 
     @Override
