@@ -76,7 +76,7 @@ public class HttpURLConnectionActivity extends MBaseActivity {
         tvTitle = (TextView) findViewById ( R.id.tv_title );
         imgBtnConfrom = (ImageButton) findViewById ( R.id.img_btn_confrom );
         mTvHttpRequestContent = (TextView) findViewById ( R.id.tv_http_request_content );
-        mImgHttpRequestContent = (ImageView) findViewById(R.id.img_http_request_content);
+        mImgHttpRequestContent = (ImageView) findViewById ( R.id.img_http_request_content );
 
     }
 
@@ -136,7 +136,7 @@ public class HttpURLConnectionActivity extends MBaseActivity {
                     httpURLConnection.setConnectTimeout ( 500 );
                     // 设置读取超时
                     httpURLConnection.setReadTimeout ( 500 );
-                    // 提交
+                    // 提交：开始连接
                     httpURLConnection.connect ();
                     // 返回码  返回码==200就是数据请求成功
                     if (httpURLConnection.getResponseCode () == 200) {
@@ -157,8 +157,8 @@ public class HttpURLConnectionActivity extends MBaseActivity {
 
                 } catch (Exception e) {
                     e.printStackTrace ();
-                }finally {
-                    if (reader != null){
+                } finally {
+                    if (reader != null) {
                         try {
                             reader.close ();
                         } catch (IOException e) {
@@ -200,6 +200,11 @@ public class HttpURLConnectionActivity extends MBaseActivity {
                 message.obj = "请求错误" + e;
                 mHandler.sendMessage ( message );
             }
+
+            @Override
+            public void getImage(Object obj) {
+
+            }
         } );
     }
 
@@ -207,7 +212,7 @@ public class HttpURLConnectionActivity extends MBaseActivity {
         new Thread ( new Runnable () {
             @Override
             public void run() {
-                httpPost();
+                httpPost ();
             }
         } ).start ();
     }
@@ -221,7 +226,7 @@ public class HttpURLConnectionActivity extends MBaseActivity {
             //设置请求方式
             post.setRequestMethod ( "POST" );
             //设置字符集
-            post.setRequestProperty ( "Charset","UTF-8" );
+            post.setRequestProperty ( "Charset", "UTF-8" );
             //设置链接超时
             post.setConnectTimeout ( 5000 );
             //设置读取超时
@@ -232,13 +237,13 @@ public class HttpURLConnectionActivity extends MBaseActivity {
             writer.write ( key );
             writer.flush ();
             writer.close ();
-            if (post.getResponseCode () == 200){
+            if (post.getResponseCode () == 200) {
                 reader = new BufferedReader (
                         new InputStreamReader ( post.getInputStream () )
                 );
                 String readerText = "";
-                StringBuffer buffer = new StringBuffer (  );
-                while ((readerText= reader.readLine ()) != null){
+                StringBuffer buffer = new StringBuffer ();
+                while ((readerText = reader.readLine ()) != null) {
                     buffer.append ( readerText );
                 }
 
@@ -251,8 +256,8 @@ public class HttpURLConnectionActivity extends MBaseActivity {
 
         } catch (Exception e) {
             e.printStackTrace ();
-        }finally {
-            if (reader != null){
+        } finally {
+            if (reader != null) {
                 try {
                     reader.close ();
                 } catch (IOException e) {
@@ -262,42 +267,92 @@ public class HttpURLConnectionActivity extends MBaseActivity {
         }
     }
 
+    String strUrl = "http://pic2.16pic.com/00/04/33/16pic_433435_b.jpg";
 
     public void httpGETImage(View view) {
-        String strUrl = "http://pic2.16pic.com/00/04/33/16pic_433435_b.jpg";
-        try {
-            //1、使用路径包装类URL，包装我们的路径
-            URL url = new URL ( strUrl );
-            //2、调用openConnection（），建立连接
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection ();
-            //3、设置请求方式
-            connection.setRequestMethod ( "GET" );
-            //4、设置请求超时时间（单位毫秒）
-            connection.setConnectTimeout ( 5000 );
-            connection.setReadTimeout ( 50000 );
-            //5、设置字符集
-//                    connection.set
-            //6、设置返回码
-            int code = connection.getResponseCode ();
-            if (code == 200) {
-                //7(流)、请求成功后，接受服务器返回的数据
-                InputStream inputStream = connection.getInputStream ();
-                //8（画工厂）、由于请求的是图片，BitmapFactory工具了
-                Bitmap bitmap = BitmapFactory.decodeStream ( inputStream );
-                Message message = new Message ();
-                message.what = 2;
-                message.obj= bitmap;
-                mHandler.sendMessage ( message );
-            } else {
-                Message message = new Message ();
-                message.what = 1;
-                message.obj= "请求错误";
-                mHandler.sendMessage ( message );
+
+//        HttpUtil.RequestNetworkPictures ( strUrl, new HttpCallBackListener () {
+//            @Override
+//            public void onFinish(String respose) {
+//
+//            }
+//
+//            @Override
+//            public void onError(Exception e) {
+//
+//            }
+//
+//            @Override
+//            public void getImage(Object obj) {
+//                Message message = new Message ();
+//                message.what = 2;
+//                message.obj = obj;
+//                mHandler.sendMessage ( message );
+//            }
+//        } );
+
+//        new Thread ( new Runnable () {
+//            @Override
+//            public void run() {
+//                String strUrl = "http://pic2.16pic.com/00/04/33/16pic_433435_b.jpg";
+//                try {
+//                    //1、使用路径包装类URL，包装我们的路径
+//                    URL url = new URL ( strUrl );
+//                    //2、调用openConnection（），建立连接
+//                    HttpURLConnection connection = (HttpURLConnection) url.openConnection ();
+//                    //3、设置请求方式
+//                    connection.setRequestMethod ( "GET" );
+//                    //4、设置请求超时时间（单位毫秒）
+//                    connection.setConnectTimeout ( 5000 );
+//                    connection.setReadTimeout ( 50000 );
+//                    //5、设置字符集
+////                    connection.set
+//                    //6、设置返回码
+//                    int code = connection.getResponseCode ();
+//                    if (code == 200) {
+//                        //7(流)、请求成功后，接受服务器返回的数据
+//                        InputStream inputStream = connection.getInputStream ();
+//                        //8（画工厂）、由于请求的是图片，BitmapFactory工具了
+//                        Bitmap bitmap = BitmapFactory.decodeStream ( inputStream );
+//                        Message message = new Message ();
+//                        message.what = 2;
+//                        message.obj= bitmap;
+//                        mHandler.sendMessage ( message );
+//                    } else {
+//                        Message message = new Message ();
+//                        message.what = 1;
+//                        message.obj= "请求错误";
+//                        mHandler.sendMessage ( message );
+//                    }
+//
+//                } catch (Exception e) {
+//                    e.printStackTrace ();
+//                }
+//            }
+//        } ).start ();
+
+
+
+        HttpUtil.getImage ( strUrl, new HttpCallBackListener () {
+            @Override
+            public void onFinish(String respose) {
+
             }
 
-        } catch (Exception e) {
-            e.printStackTrace ();
-        }
+            @Override
+            public void onError(Exception e) {
+
+            }
+
+            @Override
+            public void getImage(Object obj) {
+                Message message = new Message ();
+                message.what = 2;
+                message.obj = obj;
+                mHandler.sendMessage ( message );
+            }
+        } );
+
     }
 
     public void back(View view) {

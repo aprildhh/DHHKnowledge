@@ -9,4 +9,6 @@ public interface HttpCallBackListener {
     void onFinish(String respose);
 
     void onError(Exception e);
+
+    void getImage(Object obj);
 }

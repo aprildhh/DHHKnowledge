@@ -2,6 +2,8 @@ package com.dhh.knowledge.base;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 
 /**

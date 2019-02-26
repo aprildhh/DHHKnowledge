@@ -20,6 +20,7 @@ import com.dhh.knowledge.base.AndroidBasicActivity;
 import com.dhh.knowledge.common.Constants;
 import com.dhh.knowledge.common.Util;
 import com.dhh.knowledge.jni.JNI;
+import com.dhh.knowledge.okhttp.OkHttpActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -74,6 +75,8 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
                     Util.showActivity(MainActivity.this,HttpURLConnectionActivity.class);
                 }else if("AndroidBasic".equals ( type )){
                     Util.showActivity(MainActivity.this,AndroidBasicActivity.class);
+                }else if("OkHttp".equals ( type )){
+                    Util.showActivity(MainActivity.this,OkHttpActivity.class);
                 }
             }
         } );

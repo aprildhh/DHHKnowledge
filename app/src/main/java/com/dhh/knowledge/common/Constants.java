@@ -8,12 +8,12 @@ import com.dhh.knowledge.R;
  */
 
 public class Constants {
-    public static String[] types = {"RecyclerView", "CustomControl", "FAB", "MySQL", "Gson", "HttpURLConnection", "AndroidBasic", "占位"};
+    public static String[] types = {"RecyclerView", "CustomControl", "FAB", "MySQL", "Gson", "HttpURLConnection", "AndroidBasic","OkHttp",  "占位"};
 
-    public static String[] leftTitles = {"RecyclerView", "Android\n自定义控件", "Floating\nAction\nButton", "MySQL", "Gson", "HttpURLConnection", "Android复习", "占位"};
+    public static String[] leftTitles = {"RecyclerView", "Android\n自定义控件", "Floating\nAction\nButton", "MySQL", "Gson", "HttpURLConnection", "Android复习", "OkHttp","占位"};
 
     public static String[] titles = {"Android《RecyclerView》", "Android《自定义控件》", "悬浮按钮（FloatingActionButton）", "MySQL", "Gson",
-            "HttpURLConnection", "Android复习", "占位"};
+            "HttpURLConnection", "Android复习", "OkHttp","占位"};
 
     public static String[] contents = {"RecyclerView 是Android L版本中新添加的一个用来取代ListView的SDK，它的灵活性、插拔性、高度解耦性与可替代性比listview" +
             "更好。本视频详细讲解了RecyclerView的基本使用、设置Listview& Gridview效果、瀑布流效果、分割线、自定义设置item的点击事件以及删除和增加数据等功" +
@@ -24,6 +24,7 @@ public class Constants {
             "使用Gson生成Json串，使用Gson解析json串",
             "HttpURLConnection",
             "Android复习",
+            "OkHttp学习",
             "占位"};
 
     public static int[] colors = {R.color.c_ef9dab, R.color.c_749f42, R.color.c_f79124,

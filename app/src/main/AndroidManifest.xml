@@ -28,6 +28,7 @@
         <activity android:name=".activity.custom_control.TKActivity" />
         <activity android:name=".activity.gson.GsonActivity" />
         <activity android:name=".activity.http_url_connection.HttpURLConnectionActivity" />
+        <activity android:name=".okhttp.OkHttpActivity" />
     </application>
 
 </manifest>
